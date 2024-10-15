@@ -1,0 +1,6 @@
+/* style.css */
+#namelessHeading {
+    color: rgb(0, 60, 255); /* Make the text color red */
+    font-size: 72px; /* Increase the font size */
+    text-align: center; /* Center the text */
+}

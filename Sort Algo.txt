@@ -1,0 +1,148 @@
+let BSArray = [42, 7, 23, 98, 16, 35, 58, 12, 89, 3]
+let temp = 0
+
+function BubbleSort() 
+{
+  for (i=1; i<BSArray.length; i++)
+  {
+    for (j=1; j<BSArray.length; j++)
+    { 
+      if (BSArray[j] < BSArray[j-1]) 
+      {
+        temp = BSArray[j]
+        BSArray[j] = BSArray[j-1]
+        BSArray[j-1] = temp
+      }
+    }
+  }
+  return BSArray
+}
+
+console.log(BubbleSort())
+
+// Big O = O(N^2)
+
+let ISArray = [42, 7, 23, 98, 16, 35, 58, 12, 89, 3]
+let NTI = 0
+let SEArray = [-Infinity]
+let arrSize = ISArray.length
+
+function InsertionSort() 
+{
+  
+ 
+  for (j=0; j<arrSize; j++)
+  {
+    NTI = ISArray.shift();
+    
+    for (i=arrSize; i>-1; i--) 
+    {
+      if (SEArray[i] > NTI)
+      {
+        SEArray[i+1] = SEArray[i]
+      }
+      else if (SEArray[i] < NTI)
+      {
+        SEArray[i+1] = NTI
+        i = 0
+      }
+    }
+  }
+  SEArray.shift()
+  return SEArray
+}
+
+console.log(InsertionSort())
+
+
+// Big O = O(N^2)
+
+
+
+let QSArray = [42, 7, 23, 98, 16, 35, 58, 12, 89, 3]
+
+
+function QuickSort (arr)
+{
+    if (arr.length <= 1)
+  {
+    return arr
+  }
+  const pivot = arr[arr.length - 1];
+  let QSLeft = []
+  let QSRight = []
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      QSLeft.push(arr[i]);
+    } else {
+      QSRight.push(arr[i]);
+    }
+  }
+  const sortedLeftArray = QuickSort(QSLeft);
+  const sortedRightArray = QuickSort(QSRight);
+
+  // Combine the sorted left array, pivot, and sorted right array
+  return [...sortedLeftArray, pivot, ...sortedRightArray];
+}
+
+console.log(QuickSort(QSArray))
+
+// Big O = O(N^2)
+
+
+
+let MSArray =  [42, 7, 23, 98, 16, 35, 58, 12, 89, 3]
+
+function MergeSort (arr) 
+{
+  let left = [];
+  let right = [];
+  
+  if (arr.length <= 1)
+    {
+      return arr
+    }
+    const mid = Math.floor(arr.length / 2)
+    left = arr.slice(0, mid)
+    right = arr.slice(mid,)
+
+    let leftsorted = MergeSort(left)
+    let rightsorted = MergeSort(right)
+
+  return MSJoin(leftsorted,rightsorted)
+  
+}
+
+function MSJoin(left, right)
+{
+  let arr = []
+  while (left.length > 0 || right.length > 0)
+  {
+    if (left.length == 0)
+    {
+      arr.push(right.shift())
+    }
+    else if (right.length == 0)
+    {
+      arr.push(left.shift())
+    }
+    else if (left[0] <= right[0])
+    {
+      arr.push(left.shift())
+    }
+    else
+    {
+      arr.push(right.shift())
+    }
+  }
+  
+  return arr
+}
+
+
+
+console.log(MergeSort(MSArray))
+
+
+// Big O = O (nlogn)

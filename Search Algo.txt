@@ -1,0 +1,89 @@
+let array = [-5, 2, 10, 4, 6];
+
+function linearSearch(n){
+  for (i=0; i<array.length; i++) {
+      if (n == array[i]) {
+        return i
+      }
+  }
+  return -1
+}
+
+//console.log(linearSearch(6))
+
+// Big O = O(n)
+
+
+let sorted_array = [2, 4, 6, 8, 10, 12];
+let output_index = -1;
+let find = 12;
+let found = false;
+let attempt = sorted_array.length/2 + 1
+
+function binarySearch(start, end) {
+  while (found == false){
+    if (attempt >= 0){
+      attempt--;
+    }
+    else {
+      output_index = -1
+      break;
+    }
+    pivot = Math.round((start + end)/2)
+    if (sorted_array[pivot] == find ) {
+      output_index = pivot
+      found = true;
+    }
+    else if (sorted_array[0] == find ){
+      output_index = 0;
+      found = true;
+
+    }
+    else if (sorted_array[pivot] < find ){
+      start = pivot
+    }
+    else if (sorted_array[pivot] > find){
+      end = pivot
+    }
+  }
+}
+
+// binarySearch(0, sorted_array.length-1)
+console.log(output_index)
+
+// Big O = O(logn)
+
+
+let rec_sorted_array = [2, 4, 6, 8, 10, 12];
+let target = 10
+let answer = -1
+let rec_attempt = rec_sorted_array.length/2 + 1
+
+function binarySearch(start, end) {
+  pivot = Math.round((start + end)/2)
+  attempt = attempt-1
+    if (rec_sorted_array.length == 0) {
+      answer = -1
+    }
+    else if (attempt == 0) {
+      answer = -1
+    }
+    else if (rec_sorted_array[pivot] == target ) {
+      answer = pivot
+    }
+    else if (rec_sorted_array[0] == target ){
+      answer = 0;
+    }
+    else if (rec_sorted_array[pivot] < target ){
+      binarySearch(pivot, end)
+    }
+    else if (rec_sorted_array[pivot] > target){
+      binarySearch(start, pivot)
+    }
+  return answer
+}
+
+answer = binarySearch(0, rec_sorted_array.length-1)
+console.log(answer)
+
+// Big O = O(logn)

@@ -1,0 +1,122 @@
+let input = 7;
+let fibonacci = [0, 1];
+
+for (i=1; i<input-1; i++) {
+  fibonacci.push(fibonacci[i-1] + fibonacci[i])
+}
+
+console.log(fibonacci)
+
+// Big O = O(n)
+
+let fact=1;
+
+function factorial(n) {
+  for (i=1; i<n+1; i++) {
+    fact = fact * i
+  }
+  return fact
+}
+
+console.log(factorial(5))
+
+// Big O = O(n)
+
+
+let pri = 0;
+let prime = false;
+
+function isPrime(n) {
+  for (i=2; i<n; i++){
+    if (n == 2 || n == 3){
+      prime = true
+      return prime
+    }
+    else if (n % i == 0){
+      prime = false
+      return prime
+    }
+    else {
+      prime = true
+    }
+  }
+  return prime
+}
+
+console.log(isPrime(1009))
+
+// Big O = O(n)
+
+
+let power = true;
+
+function isPowerOfTwo(n) {
+  for (i=2; i<n; i=i*2){
+    if (n % i != 0){
+      power = false
+    }
+  }
+  return power
+}
+console.log(isPowerOfTwo(256))
+
+// Big O = O(logn)
+
+
+let fibonacciRec = [0, 1];
+let length = 0;
+
+function sumOfPrevTwo(n){
+  while (length < n-1) {
+    length = fibonacciRec.length;
+    fibonacciRec.push(fibonacciRec[length-1] + fibonacciRec[length-2])
+    sumOfPrevTwo(length)
+  }
+
+}
+
+sumOfPrevTwo(7);
+
+console.log(fibonacciRec[length])
+
+// Big O = O(n^2)
+
+
+let product = 1;
+
+function recursiveFactorial (n) {
+  if (n > 0) {
+    product = product * n
+    n = n - 1
+    recursiveFactorial(n);
+  }
+  return product
+}
+
+console.log(recursiveFactorial(5))
+
+// Big O = O(n)
+
+
+// function fibonacci(n) {
+//   const fib = [0, 1];
+//   for (let i = 2; i < n; i++) {
+//     fib[i] = fib[i - 1] + fib[i - 2];
+//   }
+//   return fib;
+// }
+
+// console.log(fibonacci(2)); // [0,1]
+// console.log(fibonacci(3)); // [0,1,1]
+// console.log(fibonacci(7)); // [0,1,1,2,3,5,8]
+
+
+// function recursiveFibonacci(n) {
+//   if (n < 2) {
+//     return n
+//   }
+//   return recursiveFibonacci(n-1) + recursiveFibonacci(n-2)
+// }
+// console.log(recursiveFibonacci(0)) // 0
+// console.log(recursiveFibonacci (1)) // 1
+// console.log(recursiveFibonacci(6)) // 8

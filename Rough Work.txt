@@ -1,0 +1,88 @@
+let sorted_array = [2, 4, 6, 8, 10, 12, 14];
+let output_index = -1;
+let find = 12;
+
+function binarySearch(start, end) {
+  pivot = Math.round((start + end)/2)
+  console.log(sorted_array.length)
+  console.log(pivot, "pivot")
+  console.log(sorted_array[pivot], "sorted array ki pivot")
+  console.log(find, "find")
+  console.log(start)
+  console.log(end)
+  
+  if (sorted_array[pivot] == find ) {
+    output_index = pivot
+    console.log("Pivot = Value")
+  }
+  else if (sorted_array[pivot] < find ){
+    sorted_array.splice(-pivot)
+    output_index = binarySearch(pivot, end)
+    console.log("Pivot is smaller than Value")
+  }
+  else if (sorted_array[pivot] > find){
+    output_index = binarySearch(start, pivot)
+    console.log("Pivot is bigger than Value")
+  }
+  else {
+    output_index = -1
+    console.log("Not Found")
+    
+  }
+  console.log("Always")
+}
+
+binarySearch(0, sorted_array.length-1)
+console.log(output_index)
+
+
+
+
+let array = [-5, 2, 10, 4, 6];
+
+function linearSearch(n){
+  for (i=0; i<array.length; i++) {
+      if (n == array[i]) {
+        return i
+      }
+  }
+  return -1
+}
+
+//console.log(linearSearch(6))
+
+// Big O = O(n)
+
+
+let sorted_array = [2, 4, 6, 8, 10, 12, 14];
+let output_index = -1;
+let find = 14;
+let found = false;
+let attempt = sorted_array.length/2 + 1
+
+function binarySearch(start, end) {
+  while (found == false){
+    if (attempt >= 0){
+      attempt--;
+    }
+    else {
+      break;
+    }
+    pivot = Math.round((start + end)/2)
+    if (sorted_array[pivot] == find ) {
+      output_index = pivot
+      found = true;
+    }
+    else if (sorted_array[pivot] < find ){
+      start = pivot
+    }
+    else if (sorted_array[pivot] > find){
+      end = pivot
+    }
+    output_index = -1
+    console.log("Always")
+  }
+}
+
+binarySearch(0, sorted_array.length-1)
+console.log(output_index)

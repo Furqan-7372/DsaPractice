@@ -1,0 +1,77 @@
+let a = [1,2]
+let b = [3,4, 5]
+
+function CartesianProduct(a,b)
+{
+  let c = []
+  for (i=0; i<a.length; i++)
+  {
+    for (j=0; j<b.length; j++)
+    {
+        c.push([a[i],b[j]])
+    }
+  }
+  return c
+}
+
+console.log(CartesianProduct(a,b))
+
+
+// Big O = O (mn)
+
+
+let NumberofStairs = 5
+
+function StairCaseProblem(n)
+{
+  if (n == 1 || n == 0)
+  {
+    result = 1
+  }
+  else
+  {
+    result = StairCaseProblem(n-1) + StairCaseProblem(n-2)
+  }
+  return result
+}
+
+console.log(StairCaseProblem(NumberofStairs))
+
+// Big O = O(N^2)
+
+
+function EuclideanAlgo (a,b) {
+  if (a == b)
+  {
+    return a
+  }
+  else if (a>b)
+  {
+    let c = a % b
+    if (c != 0)
+    {
+      return EuclideanAlgo(b,c)
+    }
+    else
+    {
+      return b
+    }
+  }
+  else if (b>a)
+  {
+    let c = b % a
+    if (c != 0)
+    {
+      return EuclideanAlgo(a,c)
+    }
+    else
+    {
+      return a
+    }
+  }
+}
+
+console.log(EuclideanAlgo(24,21))
+
+// Big O = O(n)
+
